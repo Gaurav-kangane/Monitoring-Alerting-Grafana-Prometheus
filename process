@@ -1,0 +1,22 @@
+Refer 2025-10-08
+
+
+1. create 3 servers and take Ubuntu AMI and IAM role to all servers 
+
+2. Give name grafana-prometheus to 1 server and node-server to 2 servers
+
+3. connect grafana-prometheus server and create vi gp.sh file and paste the grafana-prometheus.sh file and run the file --> sh gp.sh
+
+4. You can also create separate servers for grafana and prometheus connect the both servers and run the file
+
+5. connect both node-server and run node.sh file sh node.sh
+
+6. Grafana run on 3000 port make load balancer url on 3000 port number or if you are using public IP run it on 3000 port number and in SG group 3000 port number is enabled
+
+7. username = admin password = admin, once login go to connections --> Data sources --> select prometheus
+
+8. In url if prometheus running on different server give url with port number 9090 e.g http://43.205.128.235:9090, if prometheus runnning on samer server give http://localhost:9090 --> save & test
+
+9. Please check connection is successfull. If it fails add 9090 port number in sg.
+
+10. Go to dashboards and Import then search for 1860 load the dashboard then you can see the metrics of all servers.
