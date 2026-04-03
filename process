@@ -20,3 +20,13 @@ Refer 2025-10-08
 9. Please check connection is successfull. If it fails add 9090 port number in sg.
 
 10. Go to dashboards and Import then search for 1860 load the dashboard then you can see the metrics of all servers.
+
+11. add below stess commands for checking load of server
+
+sudo apt-get install stress-ng -y   # Ubuntu/Debian
+stress-ng --cpu 2 --timeout 300
+
+12. If you are configuring Auto scaling group then create AMI from target server and create Launch template from ami --> choose your ami select sg and in additional configuration
+    add userdata option and paste node.sh file and create launch template
+
+13. Go to Auto scaling select launch template and in tags give Name = node-servers and create it.
